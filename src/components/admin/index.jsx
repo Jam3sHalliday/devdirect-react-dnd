@@ -33,12 +33,11 @@ const Admin = () => {
 
     const [dropList, setDropList] = useState([...consumerDrop] || []);
 
-    const [prevItem, setPrevItem] = useState([])
+    // const [prevItem, setPrevItem] = useState([])
 
     const textRef = createRef();
     const alertRef = createRef();
 
-useEffect(() => console.log(prevItem), [prevItem]);
     const [, drop] = useDrop(() => ({
         accept: "element",
         drop: (item) => addDrop(item.id),
@@ -55,7 +54,7 @@ useEffect(() => console.log(prevItem), [prevItem]);
         const item = dragList.find(i => i.id === id);
         const newItem = JSON.parse(JSON.stringify(item));
         newItem.id = uuidv4();
-        setPrevItem([...prevItem, newItem]);
+        // setPrevItem([...prevItem, newItem]);
         // I'll get the same key error if pushing and rendering the same items without changing it id
         dropList.push(newItem);
         setDropList(dropList);
@@ -88,18 +87,20 @@ useEffect(() => console.log(prevItem), [prevItem]);
     const handleUnavailabel = () => alert("This function is unavailabel!");
 
     const handleUndo = () => {
-        const index = dropList.indexOf(prevItem);
-        if (index !== -1) {
-            dropList.splice(index, 1);
-            setDropList([...dropList]);
-        }
+        alert("undo & redo are kinda interesting, I'm still working on it in my local, trying to figure it out 😶😶")
+        // const index = dropList.indexOf(prevItem[prevItem.length - 1]);
+        // if (index !== -1) {
+        //     dropList.splice(index, 1);
+        //     setDropList([...dropList]);
+        // }
     }
 
     const handleRedo = () => {
-        const item = dropList.find(i => i.id === prevItem.id);
-        if (!item) {
-            setDropList([...dropList, prevItem]);
-        }
+        alert("undo & redo are kinda interesting, I'm still working on it in my local, trying to figure it out 😶😶")
+        // const item = dropList.find(i => i.id === prevItem[prevItem.lenght - 1].id);
+        // if (!item) {
+        //     setDropList([...dropList, prevItem]);
+        // }
     }
 
     const renderEditItem = id => {

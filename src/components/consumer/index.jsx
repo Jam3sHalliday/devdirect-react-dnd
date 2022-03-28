@@ -5,7 +5,6 @@ import "./styles.scss";
 
 const Consumer = () => {
     const { consumerDrop, setConsumerDrop } = useContext(DragDropContext);
-    console.log(consumerDrop);
     
     const clearConsumerDrop = () => setConsumerDrop([]);
 
