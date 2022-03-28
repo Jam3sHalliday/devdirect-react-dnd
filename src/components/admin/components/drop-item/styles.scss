@@ -1,0 +1,9 @@
+.drop-item {
+    &:not(:last-child) {
+        margin-bottom: 20px;
+    }
+
+    button {
+        padding: 4px 12px;
+    }
+}
